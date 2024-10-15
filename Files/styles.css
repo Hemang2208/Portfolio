@@ -1,9 +1,9 @@
 :root {
     --bg-color: #000;
-    --text-color: #ffffff;
-    --hover-color: #b291ff;
-    --button-color: #b992e2;
-    --button-hover-color: #ff5c93;
+    --text-color:whitesmoke ;
+    --hover-color: #FFFF00;
+    --button-color: #abf0ff;
+    --button-hover-color: #FFD700;
     --shadow-color: rgba(128, 128, 128, 0.5);
     --box-shadow: rgba(0, 0, 0, 0.5);
 }
@@ -23,6 +23,7 @@ body {
     top: 0;
     z-index: 10;
     display: flex;
+    width: auto;
     justify-content: space-between;
     padding: 15px 20px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -98,14 +99,13 @@ body {
     min-width: 100%;
     min-height: 100%;
     z-index: -1;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 .background-video-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     position: relative;
 }
 
@@ -243,7 +243,8 @@ body {
 
 .contact-container button {
     background-color: var(--button-color);
-    color: var(--text-color);
+    color: black;
+    font-size: large;
     border: none;
     padding: 10px 15px;
     border-radius: 20px;
@@ -320,40 +321,91 @@ body {
     margin: 5px 0 20px;
 }
 
-/* Media Queries */
+/* General styles for all screens */
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
 
-/* iPhone 11 and New Models */
-@media only screen and (width: 375px) and (height: 812px) and (-webkit-device-pixel-ratio: 2) {
+/* iPhone 13 and New Models */
+@media only screen and (width: 390px) and (height: 844px) and (-webkit-device-pixel-ratio: 2) {
     .welcome-message {
-        margin: 0 20px; /* Adjust margins */
+        margin: 0 15px; /* Adjust margins */
+    }
+
+    .header-nav {
+        height: 70px; /* Increase height for better touch targets */
+        display: flex; /* Use flex for alignment */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center items vertically */
     }
 
     .header-nav ul {
-        gap: 20px; /* Reduce gap for smaller screen */
+        gap: 20px; /* Adjust gap */
+        width: 100%; /* Full width */
+        display: flex; /* Ensure ul is a flex container */
+        justify-content: center; /* Center items */
     }
 
     .projects-header {
-        padding: 30px; /* Adjust padding */
+        padding: 25px; /* Adjust padding */
     }
 
     .project-previews {
         flex-direction: column; /* Stack project cards */
-        gap: 20px; /* Adjust gap */
+        gap: 15px; /* Adjust gap */
     }
 
     .contact-container {
-        margin: 100px auto; /* Adjust margins */
+        margin: 80px auto; /* Adjust margins */
     }
 }
 
-/* iPhone 11 Pro Max and New Models */
+/* iPhone 13 Pro Max and New Models */
 @media only screen and (width: 430px) and (height: 932px) and (-webkit-device-pixel-ratio: 3) {
     .welcome-message {
-        margin: 0 40px; /* Adjust margins */
+        margin: 0 25px; /* Adjust margins */
+    }
+
+    .header-nav {
+        height: 80px; /* Increase height for better touch targets */
+        display: flex; /* Use flex for alignment */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center items vertically */
     }
 
     .header-nav ul {
-        gap: 30px; /* Reduce gap for smaller screen */
+        gap: 25px; /* Adjust gap */
+    }
+
+    .projects-header {
+        padding: 35px; /* Adjust padding */
+    }
+
+    .project-previews {
+        flex-direction: column; /* Stack project cards */
+        gap: 25px; /* Adjust gap */
+    }
+
+    .contact-container {
+        margin: 120px auto; /* Adjust margins */
+    }
+}
+
+/* iPads and Other Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .welcome-message {
+        margin: 0 30px; /* Adjust margins */
+    }
+
+    .header-nav {
+        height: 90px; /* Increase height for better touch targets */
+        display: flex; /* Use flex for alignment */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center items vertically */
+    }
+
+    .header-nav ul {
+        gap: 30px; /* Adjust gap */
     }
 
     .projects-header {
@@ -361,8 +413,7 @@ body {
     }
 
     .project-previews {
-        flex-direction: column; /* Stack project cards */
-        gap: 30px; /* Adjust gap */
+        flex-direction: row; /* Align project cards in a row */
     }
 
     .contact-container {
@@ -370,26 +421,35 @@ body {
     }
 }
 
-/* Phones of 6.5 Inches and Above, excluding specific devices */
-@media only screen and (min-width: 431px) and (min-height: 812px) {
+/* Samsung Devices and Foldable Phones */
+@media only screen and (max-width: 640px) {
     .welcome-message {
-        margin: 0 50px; /* Adjust margins */
+        margin: 0 10px; /* Adjust margins */
+    }
+
+    .header-nav {
+        height: 70px; /* Increase height for better touch targets */
+        display: flex; /* Use flex for alignment */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center items vertically */
     }
 
     .header-nav ul {
-        gap: 40px; /* Adjust gap */
+        gap: 15px; /* Adjust gap */
+        width: 100%; /* Full width */
     }
 
     .projects-header {
-        padding: 50px; /* Adjust padding */
+        padding: 20px; /* Adjust padding */
     }
 
     .project-previews {
-        flex-direction: row; /* Align project cards in a row */
+        flex-direction: column; /* Stack project cards */
+        gap: 10px; /* Adjust gap */
     }
 
     .contact-container {
-        margin: 200px auto; /* Adjust margins */
+        margin: 100px auto; /* Adjust margins */
     }
 }
 
@@ -422,8 +482,9 @@ body {
     .welcome-message p {
         font-size: 1em; /* Reduce font size */
     }
+
     .project-previews {
-        flex-direction: column; /* Align project cards in a colum */
+        flex-direction: column; /* Align project cards in a column */
     }
 
     .contact-container {
