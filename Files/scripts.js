@@ -17,6 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    let percentage = 0;
+    const progressBar = document.querySelector('.progress');
+    const percentageText = document.querySelector('.percentage');
+
+    const loadingInterval = setInterval(() => {
+        if (percentage < 100) {
+            percentage++;
+            percentageText.textContent = percentage + '%';
+            progressBar.style.width = percentage + '%';
+        } else {
+            clearInterval(loadingInterval);
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+                // You can add redirection or other actions here
+                alert("Loading complete!"); // Example action
+            }, 500); // Adjust delay before hiding the loader
+        }
+    }, 30); // Adjust speed of loading
+
     const backToTopButton = document.createElement('button');
     backToTopButton.textContent = '↑ Back to Top';
     backToTopButton.id = 'backToTop';
