@@ -30,9 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clearInterval(loadingInterval);
             setTimeout(() => {
                 document.getElementById('loader').style.display = 'none';
-                // You can add redirection or other actions here
-                alert("Loading complete!"); // Example action
-            }, 500); // Adjust delay before hiding the loader
+            }, 500);
         }
     }, 30); // Adjust speed of loading
 
